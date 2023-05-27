@@ -1,0 +1,52 @@
+grf {
+    grfid: "\E5\BC\8Bf";
+    /* GRF name and description strings are defined in the lang files */
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESC);
+    /* This is the first version, start numbering at 1. */
+    version: 1;
+    min_compatible_version: 1;
+}
+
+town_names(REAL_TOWNS) {
+	{
+        {% for name in town_names %}
+		text ("{{name}}", 1),
+        {% endfor %}
+	}
+}
+
+town_names(PREFIXES) {
+	{
+        {% for name in prefixes %}
+		text ("{{name}}", 1),
+        {% endfor %}
+	}
+}
+
+town_names(SUFFIXES) {
+	{
+        {% for name in suffixes %}
+		text ("{{name}}", 1),
+        {% endfor %}
+	}
+}
+
+town_names(FAKE_TOWNS) {
+{
+	{
+		town_names (PREFIXES, 1)
+	}
+	{
+		town_names (SUFFIXES, 1)
+	}
+}
+
+town_names(ALL_TOWNS) {
+{
+	styles : string (TTD_MENU_NAME_FINNISH);
+	{
+		town_names (REAL_TOWNS, 5)
+		town_names (FAKE_TOWNS, 1)
+	}
+}
