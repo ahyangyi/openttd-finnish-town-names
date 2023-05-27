@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
 
 
+def canonicalize_prefix(s):
+    s = s.lower()
+    return s
+
+
+def canonicalize_suffix(s):
+    s = s.lower()
+    for c in (" ", "-"):
+        if s.startswith(c):
+            s = s[len(c) :]
+        if s.endswith(c):
+            s = s[: -len(c)]
+    return s
+
+
 def main():
     with open("names/real.csv") as f:
         town_names = list(w.strip() for w in f)
@@ -13,7 +28,10 @@ def main():
     for t in town_names:
         for i in range(1, len(t)):
             p, s = t[:i], t[i:]
-            if p.lower() in word_set and s.lower() in word_set:
+            if (
+                canonicalize_prefix(p) in word_set
+                and canonicalize_suffix(s) in word_set
+            ):
                 prefixes[p] = prefixes.get(p, 0) + 1
                 suffixes[s] = suffixes.get(s, 0) + 1
 
