@@ -1,6 +1,6 @@
 ##grflangid 0x01
-STR_GRF_NAME			:Ahyangyi's Finnish Town Names
+STR_GRF_NAME			:Ahyangyi's Finnish Town Names (Simplified Chinese transliteration)
 STR_GRF_DESC		    :A collection of {NUM_TOWN_NAMES} Finnish town and village names, plus a generator to generate more when needed.
 
 STR_GRF_URL             :https://www.tt-forums.net/viewtopic.php?p=1261761
-TTD_MENU_NAME_FINNISH   :Finnish (Ahyangyi's Version)
+TTD_MENU_NAME_FINNISH_CHINESE_TRANSLITERATION   :Finnish (Simplifieid Chinese transliteration)

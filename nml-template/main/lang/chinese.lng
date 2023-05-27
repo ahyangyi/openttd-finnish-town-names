@@ -1,0 +1,6 @@
+##grflangid 0x56
+STR_GRF_NAME			: Ahyangyi 的芬兰地名
+STR_GRF_DESC		    : {NUM_TOWN_NAMES} 个芬兰的城镇和乡村地名 + 生成额外地名的生成器。
+
+STR_GRF_URL             :https://www.tt-forums.net/viewtopic.php?p=1261761
+TTD_MENU_NAME_FINNISH   : 芬兰

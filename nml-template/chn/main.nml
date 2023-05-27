@@ -1,0 +1,48 @@
+grf {
+    grfid: "\E5\BC\8BF";
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESC);
+    version: {{version}};
+    min_compatible_version: 1;
+}
+
+town_names(CHN_REAL_TOWNS) {
+	{
+    {%- for name in chn_town_names %}
+		text ("{{name}}", 1),
+    {%- endfor %}
+	}
+}
+
+town_names(CHN_PREFIXES) {
+	{
+    {%- for name in chn_prefixes %}
+		text ("{{name}}", 1),
+    {%- endfor %}
+	}
+}
+
+town_names(CHN_SUFFIXES) {
+	{
+    {%- for name in chn_suffixes %}
+		text ("{{name}}", 1),
+    {%- endfor %}
+	}
+}
+
+town_names(CHN_FAKE_TOWNS) {
+	{
+		town_names(CHN_PREFIXES, 1)
+	}
+	{
+		town_names(CHN_SUFFIXES, 1)
+	}
+}
+
+town_names(CHN_ALL_TOWNS) {
+	styles : string(TTD_MENU_NAME_FINNISH_CHINESE_TRANSLITERATION);
+	{
+		town_names(CHN_REAL_TOWNS, 1),
+		town_names(CHN_FAKE_TOWNS, 1)
+	}
+}

@@ -5,7 +5,7 @@ import re
 
 cons = ["", "b", "c", "d", "f", "g", "h", "j y", "ck kk k", "l ll hl", "m mm", "n", "p pp", "r rr", "s ss z", "t th dt", "v w", "x", "ts tz z"]
 vowels = [
-    ["", "布", "克", "德", "夫", "格", "赫", "伊", "克", "尔", "姆", "恩", "普", "尔", "斯", "特", "夫", "克斯", "茨"],
+    ["", "", "布", "克", "德", "夫", "格", "赫", "伊", "克", "尔", "姆", "恩", "普", "尔", "斯", "特", "夫", "克斯", "茨"],
     ["a aa", "阿", "巴", "卡", "达", "法", "加", "哈", "亚", "卡", "拉", "马", "纳", "帕", "拉", "萨", "塔", "瓦", "克萨", "察"],
     ["ä ää ae e ee", "埃", "贝", "塞", "代", "费", "盖", "海", "耶", "凯", "莱", "梅", "内", "佩", "雷", "塞", "泰", "韦", "克塞", "采"],
     ["an", "安", "班", "坎", "丹", "凡", "甘", "汉", "扬", "坎", "兰", "曼", "南", "潘", "兰", "桑", "坦", "万", "克桑", "灿"],
@@ -27,11 +27,12 @@ vowels = [
     ["y yy", "于", "比", "叙", "迪", "菲", "居", "许", "于", "屈", "吕", "米", "尼", "皮", "吕", "叙", "蒂", "维", "克叙", "曲"],
     ]
 
+
 def transliterate(word):
     if word == "":
         return ""
     if " " in word:
-        return " ".join(transliterate(w) for w in word.split(" "))
+        return "".join(transliterate(w) for w in word.split(" "))
     if "-" in word:
         return "-".join(transliterate(w) for w in word.split("-"))
     word = word.lower()
@@ -65,3 +66,13 @@ def transliterate(word):
         result += vowels[best_j][best_i + 1]
     
     return result
+
+
+def transliterate_list(l):
+    ret = []
+    for w in l:
+        try:
+            ret.append(transliterate(w))
+        except:
+            pass
+    return ret

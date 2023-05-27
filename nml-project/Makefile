@@ -1,2 +1,0 @@
-build:
-	nmlc main.nml
