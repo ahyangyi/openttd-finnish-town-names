@@ -1,6 +1,6 @@
 ##grflangid 0x56
 STR_GRF_NAME			: Ahyangyi 的芬兰地名（简体中文译名）
-STR_GRF_DESC		    : {{num_town_names}} 个芬兰的城镇和乡村地名 + 生成额外地名的生成器。用脚本查表翻译成了中文。
+STR_GRF_DESC		    : {NUM_TOWN_NAMES} 个芬兰的城镇和乡村地名 + 生成额外地名的生成器。用脚本查表翻译成了中文。
 
 STR_GRF_URL             :https://www.tt-forums.net/viewtopic.php?p=1261761
 TTD_MENU_NAME_FINNISH_CHINESE_TRANSLITERATION   : 芬兰（简体中文译名）
