@@ -1,2 +1,2 @@
-*.nml
-*.grf
+# Any file must be added with -f
+*
