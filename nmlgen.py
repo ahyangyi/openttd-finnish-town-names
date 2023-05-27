@@ -26,15 +26,17 @@ def main():
     with open("parts/suffix.csv") as f:
         suffixes = list(w.strip() for w in f)
         chn_suffixes = transliterate_list(suffixes)
-    town_names = dedup(town_names, prefixes, suffixes)
-    chn_town_names = dedup(chn_town_names, chn_prefixes, chn_suffixes)
+    dedup_town_names = dedup(town_names, prefixes, suffixes)
+    dedup_chn_town_names = dedup(chn_town_names, chn_prefixes, chn_suffixes)
 
     environment = jinja2.Environment(loader=jinja2.FileSystemLoader("."))
     context = {
-        "town_names": town_names,
+        "num_town_names": len(town_names),
+        "town_names": dedup_town_names,
         "prefixes": prefixes,
         "suffixes": suffixes,
-        "chn_town_names": chn_town_names,
+        "num_chn_town_names": len(chn_town_names),
+        "chn_town_names": dedup_chn_town_names,
         "chn_prefixes": chn_prefixes,
         "chn_suffixes": chn_suffixes,
         "version": 1,

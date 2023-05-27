@@ -1,1 +1,1 @@
-NUM_TOWN_NAMES  : {{town_names|length}}
+NUM_TOWN_NAMES  : {{num_town_names}}
