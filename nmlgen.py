@@ -17,8 +17,8 @@ def main():
         "suffixes": suffixes,
     }
 
-    with open("nml-project/finnish_town_names.nml", "w") as f:
-        template = environment.get_template("template.nml")
+    with open("nml-project/main.nml", "w") as f:
+        template = environment.get_template("main.nml")
         f.write(template.render(context))
 
 

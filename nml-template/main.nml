@@ -10,43 +10,41 @@ grf {
 
 town_names(REAL_TOWNS) {
 	{
-        {% for name in town_names %}
+    {%- for name in town_names %}
 		text ("{{name}}", 1),
-        {% endfor %}
+    {%- endfor %}
 	}
 }
 
 town_names(PREFIXES) {
 	{
-        {% for name in prefixes %}
+    {%- for name in prefixes %}
 		text ("{{name}}", 1),
-        {% endfor %}
+    {%- endfor %}
 	}
 }
 
 town_names(SUFFIXES) {
 	{
-        {% for name in suffixes %}
+    {%- for name in suffixes %}
 		text ("{{name}}", 1),
-        {% endfor %}
+    {%- endfor %}
 	}
 }
 
 town_names(FAKE_TOWNS) {
-{
 	{
-		town_names (PREFIXES, 1)
+		town_names(PREFIXES, 1)
 	}
 	{
-		town_names (SUFFIXES, 1)
+		town_names(SUFFIXES, 1)
 	}
 }
 
 town_names(ALL_TOWNS) {
-{
-	styles : string (TTD_MENU_NAME_FINNISH);
+	styles : string(TTD_MENU_NAME_FINNISH);
 	{
-		town_names (REAL_TOWNS, 5)
-		town_names (FAKE_TOWNS, 1)
+		town_names(REAL_TOWNS, 5),
+		town_names(FAKE_TOWNS, 1)
 	}
 }
