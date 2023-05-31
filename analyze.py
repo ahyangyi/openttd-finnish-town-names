@@ -2,6 +2,18 @@
 import glob
 from bs4 import BeautifulSoup
 
+# From there:
+# https://github.com/OpenTTD/OpenTTD/blob/master/src/lang/finnish.txt
+system_prefixes = [
+    "Pohjois-",
+    "Etelä-",
+    "Itä-",
+    "Länsi-",
+    "Keski-",
+    "Ylä-",
+    "Ala-",
+]
+
 
 def main():
     s = set()
@@ -14,6 +26,8 @@ def main():
         for w in sorted(list(s)):
             # filter out compounds such as "Haapajärven sydänmaa"
             if any(word[0].islower() for word in w.split(" ")):
+                continue
+            if any(w.startswith(prefix) for prefix in system_prefixes):
                 continue
             print(w, file=f)
 

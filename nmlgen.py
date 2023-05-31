@@ -39,7 +39,7 @@ def main():
         "chn_town_names": dedup_chn_town_names,
         "chn_prefixes": chn_prefixes,
         "chn_suffixes": chn_suffixes,
-        "version": 1,
+        "version": 2,
     }
 
     for path in glob.glob("nml-template/**/*.*", recursive=True):

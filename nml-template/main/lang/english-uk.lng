@@ -1,6 +1,6 @@
 ##grflangid 0x00
 STR_GRF_NAME			:Ahyangyi's Finnish Town Names
-STR_GRF_DESC		    :A collection of {NUM_TOWN_NAMES} Finnish town and village names, plus a generator to generate more.
+STR_GRF_DESC		    :A collection of {NUM_TOWN_NAMES} Finnish town and village names, plus a generator to generate more.{}Thanks for suggestions by Hei on tt-forums.
 
 STR_GRF_URL             :https://www.tt-forums.net/viewtopic.php?p=1261761
 TTD_MENU_NAME_FINNISH   :Finnish
