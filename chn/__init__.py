@@ -28,12 +28,14 @@ vowels = [
     ]
 
 
-def transliterate(word):
+def transliterate(word, is_prefix=False, is_suffix=False):
     if word == "":
         return ""
     if " " in word:
+        # Not setting is_prefix and is_suffix for now
         return "".join(transliterate(w) for w in word.split(" "))
     if "-" in word:
+        # Ditto
         return "-".join(transliterate(w) for w in word.split("-"))
     word = word.lower()
     result = ""
@@ -64,15 +66,32 @@ def transliterate(word):
             raise Exception("Not Finnish alphabet")
 
         result += vowels[best_j][best_i + 1]
-    
+
+    # Apply special rules
+    # source: https://zh.wikipedia.org/wiki/Wikipedia:%E5%A4%96%E8%AA%9E%E8%AD%AF%E9%9F%B3%E8%A1%A8
+
+    # Special Rule 3
+    # 汉语拼音dong、nan和xi的译音用于地名的开头时，应使用汉字栋、楠和锡（而不是东、南和西），避免望文生义。
+    if not is_suffix and result[0] == "东":
+        result = "栋" + result[1:]
+    if not is_suffix and result[0] == "南":
+        result = "楠" + result[1:]
+    if not is_suffix and result[0] == "西":
+        result = "锡" + result[1:]
+
+    # Special Rule 4
+    # “海”出现于地名结尾时，应改为“亥”，避免望文生义。
+    if not is_prefix and result[-1] == "海":
+        result = result[:-1] + "亥"
+ 
     return result
 
 
-def transliterate_list(l):
+def transliterate_list(l, is_prefix=False, is_suffix=False):
     ret = []
     for w in l:
         try:
-            ret.append(transliterate(w))
+            ret.append(transliterate(w, is_prefix, is_suffix))
         except:
             pass
     return ret

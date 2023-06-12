@@ -22,10 +22,10 @@ def main():
         chn_town_names = transliterate_list(town_names)
     with open("parts/prefix.csv") as f:
         prefixes = list(w.strip() for w in f)
-        chn_prefixes = transliterate_list(prefixes)
+        chn_prefixes = transliterate_list(prefixes, is_prefix=True)
     with open("parts/suffix.csv") as f:
         suffixes = list(w.strip() for w in f)
-        chn_suffixes = transliterate_list(suffixes)
+        chn_suffixes = transliterate_list(suffixes, is_suffix=True)
     dedup_town_names = dedup(town_names, prefixes, suffixes)
     dedup_chn_town_names = dedup(chn_town_names, chn_prefixes, chn_suffixes)
 
@@ -39,7 +39,7 @@ def main():
         "chn_town_names": dedup_chn_town_names,
         "chn_prefixes": chn_prefixes,
         "chn_suffixes": chn_suffixes,
-        "version": 2,
+        "version": 3,
     }
 
     for path in glob.glob("nml-template/**/*.*", recursive=True):
